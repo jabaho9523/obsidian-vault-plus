@@ -63,6 +63,13 @@ Vault Plus reads Obsidian's metadata cache — it never re-parses your notes. Al
 
 The fuzzy-duplicate check scales roughly with the square of your note count. It's fast enough up to about 5,000 notes; if your vault is larger than that and you notice a delay, disable **Find fuzzy duplicates** in settings.
 
+## Plus Plugin Family
+
+Vault Plus is part of the **Plus Plugin Family** for Obsidian:
+
+- **[Paste Plus](https://github.com/jabaho9523/obsidian-paste-plus)** — Smart paste: URLs become titled links, images get clean filenames, HTML converts to markdown, YouTube and Twitter links resolve to titles.
+- **Vault Plus** — Vault health dashboard: find and fix orphans, broken links, empty notes, duplicates, and more.
+
 ## Support
 
 If Vault Plus saves you time, you can support development here:
