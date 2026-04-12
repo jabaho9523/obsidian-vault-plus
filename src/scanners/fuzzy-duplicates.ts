@@ -7,7 +7,7 @@ export const fuzzyDuplicatesScanner: Scanner = {
 	id: "enableDuplicates",
 	category: "duplicate",
 	enabled: (s) => s.enableDuplicates,
-	async run(ctx) {
+	run(ctx) {
 		const issues: HealthIssue[] = [];
 		const files = ctx.markdownFiles;
 		const normalized = files.map((f) => normalizeTitle(f.basename));

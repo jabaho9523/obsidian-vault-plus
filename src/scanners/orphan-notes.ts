@@ -5,7 +5,7 @@ export const orphanNotesScanner: Scanner = {
 	id: "enableOrphans",
 	category: "orphan",
 	enabled: (s) => s.enableOrphans,
-	async run(ctx) {
+	run(ctx) {
 		const issues: HealthIssue[] = [];
 		for (const f of ctx.markdownFiles) {
 			const outgoing = ctx.resolvedLinks[f.path] ?? {};

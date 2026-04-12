@@ -22,14 +22,14 @@ export class VaultPlusView extends ItemView {
 	}
 
 	getDisplayText(): string {
-		// eslint-disable-next-line obsidianmd/ui/sentence-case
-		return "Vault Plus";
+		return "Vault plus";
 	}
 
 	getIcon(): string {
 		return "brush-cleaning";
 	}
 
+	 
 	async onOpen(): Promise<void> {
 		this.unsubscribe = this.plugin.orchestrator.events.on(
 			"scan:completed",
@@ -52,6 +52,7 @@ export class VaultPlusView extends ItemView {
 		}
 	}
 
+	 
 	async onClose(): Promise<void> {
 		this.unsubscribe?.();
 		this.unsubscribe = null;

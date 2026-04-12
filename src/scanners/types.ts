@@ -16,5 +16,5 @@ export interface Scanner {
 	id: string;
 	category: IssueCategory;
 	enabled: (s: VaultPlusSettings) => boolean;
-	run: (ctx: ScanContext) => Promise<HealthIssue[]>;
+	run: (ctx: ScanContext) => HealthIssue[] | Promise<HealthIssue[]>;
 }

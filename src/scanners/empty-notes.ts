@@ -5,7 +5,7 @@ export const emptyNotesScanner: Scanner = {
 	id: "enableEmpty",
 	category: "empty",
 	enabled: (s) => s.enableEmpty,
-	async run(ctx) {
+	run(ctx) {
 		const issues: HealthIssue[] = [];
 		for (const f of ctx.markdownFiles) {
 			const cache = ctx.app.metadataCache.getFileCache(f);

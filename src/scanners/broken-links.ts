@@ -6,7 +6,7 @@ export const brokenLinksScanner: Scanner = {
 	id: "enableBrokenLinks",
 	category: "broken-link",
 	enabled: (s) => s.enableBrokenLinks,
-	async run(ctx) {
+	run(ctx) {
 		const issues: HealthIssue[] = [];
 		for (const [sourcePath, unresolved] of Object.entries(
 			ctx.unresolvedLinks

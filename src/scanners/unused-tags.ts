@@ -7,7 +7,7 @@ export const unusedTagsScanner: Scanner = {
 	id: "enableUnusedTags",
 	category: "unused-tag",
 	enabled: (s) => s.enableUnusedTags,
-	async run(ctx) {
+	run(ctx) {
 		const tagToFiles = new Map<string, Set<TFile>>();
 		for (const f of ctx.markdownFiles) {
 			const cache = ctx.app.metadataCache.getFileCache(f);

@@ -5,7 +5,7 @@ export const unrefAttachmentsScanner: Scanner = {
 	id: "enableUnrefAttachments",
 	category: "unref-attachment",
 	enabled: (s) => s.enableUnrefAttachments,
-	async run(ctx) {
+	run(ctx) {
 		const referenced = new Set<string>();
 		for (const targets of Object.values(ctx.resolvedLinks)) {
 			for (const target of Object.keys(targets)) {
