@@ -1,0 +1,160 @@
+.vh-root {
+	padding: 12px 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-size: var(--font-ui-small);
+}
+
+.vh-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.vh-title {
+	margin: 0;
+	font-size: var(--font-ui-medium);
+}
+
+.vh-header-actions {
+	display: flex;
+	gap: 4px;
+}
+
+.vh-summary {
+	color: var(--text-muted);
+	font-size: var(--font-ui-smaller);
+}
+
+.vh-empty {
+	color: var(--text-muted);
+	text-align: center;
+	padding: 24px 0;
+}
+
+.vh-categories {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.vh-category {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.vh-category-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 10px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.vh-category-header:hover {
+	background: var(--background-modifier-hover);
+}
+
+.vh-chevron {
+	display: inline-flex;
+	transition: transform 120ms ease;
+}
+
+.vh-category.vh-collapsed .vh-chevron {
+	transform: rotate(-90deg);
+}
+
+.vh-category-icon {
+	display: inline-flex;
+	color: var(--text-muted);
+}
+
+.vh-category-name {
+	flex: 1;
+	font-weight: 500;
+}
+
+.vh-category-count {
+	background: var(--background-modifier-border);
+	color: var(--text-muted);
+	border-radius: 10px;
+	padding: 1px 8px;
+	font-size: var(--font-ui-smaller);
+}
+
+.vh-category-body {
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+.vh-category.vh-collapsed .vh-category-body {
+	display: none;
+}
+
+.vh-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 10px;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.vh-row:last-child {
+	border-bottom: none;
+}
+
+.vh-row:hover {
+	background: var(--background-modifier-hover);
+}
+
+.vh-row-main {
+	flex: 1;
+	min-width: 0;
+}
+
+.vh-row-title {
+	font-weight: 500;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.vh-row-detail {
+	color: var(--text-muted);
+	font-size: var(--font-ui-smaller);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.vh-row-actions {
+	display: flex;
+	gap: 2px;
+	flex-shrink: 0;
+}
+
+.vh-action {
+	background: transparent;
+	border: none;
+	color: var(--text-muted);
+	cursor: pointer;
+	padding: 4px 6px;
+	border-radius: 4px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.vh-action:hover {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.vh-action-danger:hover {
+	color: var(--text-error);
+}
