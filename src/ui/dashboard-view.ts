@@ -29,8 +29,7 @@ export class VaultPlusView extends ItemView {
 		return "brush-cleaning";
 	}
 
-	 
-	async onOpen(): Promise<void> {
+	onOpen(): Promise<void> {
 		this.unsubscribe = this.plugin.orchestrator.events.on(
 			"scan:completed",
 			() => this.render()
@@ -50,13 +49,14 @@ export class VaultPlusView extends ItemView {
 				.scan()
 				.catch((e) => console.warn("[Vault Plus] scan failed", e));
 		}
+		return Promise.resolve();
 	}
 
-	 
-	async onClose(): Promise<void> {
+	onClose(): Promise<void> {
 		this.unsubscribe?.();
 		this.unsubscribe = null;
 		this.contentEl.empty();
+		return Promise.resolve();
 	}
 
 	private renderRunning(): void {
