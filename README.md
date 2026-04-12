@@ -82,4 +82,4 @@ If Vault Plus saves you time, you can support development here:
 
 ## License
 
-0BSD — no lawyers were harmed in the making of this license.
+0BSD — copy, paste, ship. The license matches the plugin.
