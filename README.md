@@ -2,6 +2,8 @@
 
 A single sidebar dashboard that finds the messy parts of your vault and lets you fix them in one click. No setup, no learning curve — install it, open the dashboard, clean your vault.
 
+![Vault Plus demo](docs/demo.gif)
+
 ## What it finds
 
 - **Orphan notes** — notes no other note links to (strict mode also requires zero outgoing links)
@@ -45,6 +47,8 @@ Vault rot is universal once you pass ~200 notes. There's a scattered ecosystem o
 The dashboard auto-refreshes a couple of seconds after you edit a note so counts stay current while you clean up.
 
 ## Settings
+
+![Vault Plus settings](docs/settings.png)
 
 Open **Settings → Community plugins → Vault Plus**. You can:
 
