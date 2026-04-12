@@ -82,4 +82,4 @@ If Vault Plus saves you time, you can support development here:
 
 ## License
 
-0BSD — take it, break it, tattoo it on your arm, no permission needed.
+0BSD — no lawyers were harmed in the making of this license.
