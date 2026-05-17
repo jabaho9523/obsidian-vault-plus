@@ -1,7 +1,7 @@
 {
 	"id": "vault-plus",
 	"name": "Vault Plus",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"minAppVersion": "1.7.2",
 	"description": "Vault health dashboard — orphans, broken links, empty and oversized notes, duplicates, unused tags, unreferenced attachments — with one-click fixes.",
 	"author": "Jacob Bakholm",
