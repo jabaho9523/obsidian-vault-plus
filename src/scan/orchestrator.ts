@@ -73,7 +73,7 @@ export class ScanOrchestrator {
 					console.warn(`[Vault Plus] scanner ${s.id} failed`, e);
 					issuesByCategory[s.category] = [];
 				}
-				await new Promise((r) => setTimeout(r, 0));
+				await new Promise((r) => window.activeWindow.setTimeout(r, 0));
 			}
 			const results: ScanResults = {
 				issuesByCategory,
