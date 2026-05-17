@@ -1,6 +1,6 @@
 {
 	"name": "vault-plus",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Vault health dashboard with one-click fixes.",
 	"main": "main.js",
 	"type": "module",
