@@ -1,5 +1,7 @@
 # Vault Plus
 
+![Vault Plus](docs/hero.png)
+
 A single sidebar dashboard that finds the messy parts of your vault and lets you fix them in one click. No setup, no learning curve — install it, open the dashboard, clean your vault.
 
 ![Vault Plus demo](docs/demo.gif)
