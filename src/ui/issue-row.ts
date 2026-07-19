@@ -83,7 +83,7 @@ export function renderIssueRow(
 				new ConfirmModal(
 					plugin.app,
 					"Move to trash?",
-					`"${issue.title}" will be moved to the system trash.`,
+					`${issue.file.path} will be moved to your Obsidian trash (per Settings → Files & links → Deleted files).`,
 					performDelete
 				).open();
 			} else {
