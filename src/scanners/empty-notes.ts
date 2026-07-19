@@ -8,32 +8,43 @@ export const emptyNotesScanner: Scanner = {
 	run(ctx) {
 		const issues: HealthIssue[] = [];
 		for (const f of ctx.markdownFiles) {
+			// Empty notes are delete-eligible, so never flag a note that other
+			// notes link to — trashing it would silently break those links.
+			if ((ctx.reverseLinks.get(f.path)?.size ?? 0) > 0) continue;
+
 			const cache = ctx.app.metadataCache.getFileCache(f);
 			if (!cache) {
-				if (f.stat.size === 0) {
+				// No parseable metadata and tiny on disk → treat as empty.
+				if (f.stat.size < ctx.settings.emptyByteThreshold) {
 					issues.push({
 						id: `empty:${f.path}`,
 						category: "empty",
 						file: f,
 						title: f.basename,
-						detail: "0 bytes",
+						detail: `${f.stat.size} bytes`,
 					});
 				}
 				continue;
 			}
+
 			const hasHeadings = (cache.headings?.length ?? 0) > 0;
 			const hasLinks = (cache.links?.length ?? 0) > 0;
 			const hasEmbeds = (cache.embeds?.length ?? 0) > 0;
 			const nonYamlSections = (cache.sections ?? []).filter(
 				(s) => s.type !== "yaml"
 			);
-			const smallFile = f.stat.size < ctx.settings.emptyByteThreshold;
-			const looksEmpty =
-				!hasHeadings &&
-				!hasLinks &&
-				!hasEmbeds &&
-				nonYamlSections.length === 0;
-			if (looksEmpty || (smallFile && !hasHeadings && !hasLinks)) {
+
+			// "Empty" means no body content at all — blank or frontmatter-only.
+			// Real prose always produces a non-YAML section, so a short one-line
+			// note is never flagged. The previous size-only branch flagged such
+			// real notes as empty and is intentionally removed.
+			const hasBody =
+				hasHeadings ||
+				hasLinks ||
+				hasEmbeds ||
+				nonYamlSections.length > 0;
+
+			if (!hasBody) {
 				issues.push({
 					id: `empty:${f.path}`,
 					category: "empty",
