@@ -63,12 +63,19 @@ export class ScanOrchestrator {
 		const settings = this.getSettings();
 		const ctx = buildScanContext(this.app, settings);
 		const issuesByCategory = emptyIssuesByCategory();
+		const notes: ScanResults["notes"] = {};
 
 		try {
 			for (const s of this.scanners) {
 				if (!s.enabled(settings)) continue;
 				try {
-					issuesByCategory[s.category] = await s.run(ctx);
+					const out = await s.run(ctx);
+					if (Array.isArray(out)) {
+						issuesByCategory[s.category] = out;
+					} else {
+						issuesByCategory[s.category] = out.issues;
+						notes[s.category] = out.note;
+					}
 				} catch (e) {
 					console.warn(`[Vault Plus] scanner ${s.id} failed`, e);
 					issuesByCategory[s.category] = [];
@@ -77,6 +84,7 @@ export class ScanOrchestrator {
 			}
 			const results: ScanResults = {
 				issuesByCategory,
+				notes,
 				startedAt,
 				finishedAt: Date.now(),
 				fileCount: ctx.markdownFiles.length,

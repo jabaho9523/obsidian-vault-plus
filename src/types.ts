@@ -44,6 +44,7 @@ export type IssuesByCategory = Record<IssueCategory, HealthIssue[]>;
 
 export interface ScanResults {
 	issuesByCategory: IssuesByCategory;
+	notes: Partial<Record<IssueCategory, string>>;
 	startedAt: number;
 	finishedAt: number;
 	fileCount: number;

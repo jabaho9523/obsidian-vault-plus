@@ -19,6 +19,7 @@ export function renderCategorySection(
 	container: HTMLElement,
 	category: IssueCategory,
 	issues: HealthIssue[],
+	note: string | undefined,
 	plugin: VaultPlusPlugin,
 	collapsed: boolean,
 	onToggle: (collapsed: boolean) => void
@@ -50,6 +51,7 @@ export function renderCategorySection(
 	const buildBody = () => {
 		built = true;
 		const body = section.createDiv({ cls: "vh-category-body" });
+		if (note) body.createDiv({ cls: "vh-category-note", text: note });
 		const more = body.createEl("button", { cls: "vh-show-more" });
 		let shown = 0;
 		const showNext = () => {
