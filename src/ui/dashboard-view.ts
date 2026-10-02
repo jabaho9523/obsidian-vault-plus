@@ -145,6 +145,7 @@ export class VaultPlusView extends ItemView {
 				categories,
 				cat,
 				issues,
+				results.notes[cat],
 				this.plugin,
 				this.collapsed[cat] === true,
 				(v) => {

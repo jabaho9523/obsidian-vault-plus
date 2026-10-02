@@ -12,7 +12,7 @@ A single sidebar dashboard that finds the messy parts of your vault and lets you
 - **Broken links** — wikilinks and markdown links pointing at missing notes or attachments
 - **Empty notes** — notes with no real content, only frontmatter, or near-zero bytes
 - **Oversized notes** — notes over a configurable word threshold (default 3000) that are good candidates for splitting
-- **Fuzzy duplicates** — notes with nearly identical titles (case-insensitive, edit-distance based)
+- **Fuzzy duplicates** — notes with nearly identical titles (case-insensitive, edit-distance based). Date-named and numbered notes (titles that are mostly digits) are excluded.
 - **Unused tags** — tags that only appear in a single note
 - **Unreferenced attachments** — images and other files in your vault that no note links to
 

@@ -13,10 +13,13 @@ const CATEGORY_ICON: Record<IssueCategory, string> = {
 	"unref-attachment": "paperclip",
 };
 
+const PAGE_SIZE = 100;
+
 export function renderCategorySection(
 	container: HTMLElement,
 	category: IssueCategory,
 	issues: HealthIssue[],
+	note: string | undefined,
 	plugin: VaultPlusPlugin,
 	collapsed: boolean,
 	onToggle: (collapsed: boolean) => void
@@ -41,14 +44,39 @@ export function renderCategorySection(
 		text: String(issues.length),
 	});
 
-	const body = section.createDiv({ cls: "vh-category-body" });
-	for (const issue of issues) {
-		renderIssueRow(body, issue, plugin);
-	}
+	// Rows are built on first expand and capped per batch: a pathological
+	// scan result (hundreds of thousands of issues) must not become that
+	// many DOM nodes.
+	let built = false;
+	const buildBody = () => {
+		built = true;
+		const body = section.createDiv({ cls: "vh-category-body" });
+		if (note) body.createDiv({ cls: "vh-category-note", text: note });
+		const more = body.createEl("button", { cls: "vh-show-more" });
+		let shown = 0;
+		const showNext = () => {
+			more.detach();
+			const end = Math.min(shown + PAGE_SIZE, issues.length);
+			for (; shown < end; shown++) {
+				renderIssueRow(body, issues[shown]!, plugin);
+			}
+			const remaining = issues.length - shown;
+			if (remaining > 0) {
+				more.setText(
+					`Show ${Math.min(PAGE_SIZE, remaining)} more (${remaining} remaining)`
+				);
+				body.appendChild(more);
+			}
+		};
+		more.addEventListener("click", showNext);
+		showNext();
+	};
+	if (!collapsed) buildBody();
 
 	header.addEventListener("click", () => {
 		const nowCollapsed = !section.hasClass("vh-collapsed");
 		section.toggleClass("vh-collapsed", nowCollapsed);
+		if (!nowCollapsed && !built) buildBody();
 		onToggle(nowCollapsed);
 	});
 }

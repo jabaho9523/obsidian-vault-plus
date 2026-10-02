@@ -12,9 +12,13 @@ export interface ScanContext {
 	reverseLinks: Map<string, Set<string>>;
 }
 
+export type ScannerOutput =
+	| HealthIssue[]
+	| { issues: HealthIssue[]; note: string };
+
 export interface Scanner {
 	id: string;
 	category: IssueCategory;
 	enabled: (s: VaultPlusSettings) => boolean;
-	run: (ctx: ScanContext) => HealthIssue[] | Promise<HealthIssue[]>;
+	run: (ctx: ScanContext) => ScannerOutput | Promise<ScannerOutput>;
 }

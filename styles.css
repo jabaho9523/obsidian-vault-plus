@@ -96,6 +96,19 @@
 	display: none;
 }
 
+.vh-category-note {
+	padding: 6px 10px;
+	color: var(--text-muted);
+	font-size: var(--font-ui-smaller);
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.vh-show-more {
+	align-self: flex-start;
+	margin: 6px 10px;
+	font-size: var(--font-ui-smaller);
+}
+
 .vh-row {
 	display: flex;
 	align-items: center;
