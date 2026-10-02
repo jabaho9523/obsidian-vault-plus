@@ -96,6 +96,12 @@
 	display: none;
 }
 
+.vh-show-more {
+	align-self: flex-start;
+	margin: 6px 10px;
+	font-size: var(--font-ui-smaller);
+}
+
 .vh-row {
 	display: flex;
 	align-items: center;
