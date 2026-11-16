@@ -71,11 +71,14 @@ The fuzzy-duplicate check scales roughly with the square of your note count. It'
 
 ## Plus Plugin Family
 
-Vault Plus is part of the **Plus Plugin Family** for Obsidian:
+Part of the **Plus Plugin Family** for Obsidian — free, open-source, local-first:
 
-- **[Paste Plus](https://github.com/jabaho9523/obsidian-paste-plus)** — Smart paste: URLs become titled links, images get clean filenames, HTML converts to markdown, YouTube and Twitter links resolve to titles.
+- **[Paste Plus](https://github.com/jabaho9523/obsidian-paste-plus)** — Smart paste: URLs become titled links, images get clean filenames, HTML converts to markdown.
 - **Vault Plus** — Vault health dashboard: find and fix orphans, broken links, empty notes, duplicates, and more.
-- **[Link Plus](https://github.com/jabaho9523/obsidian-link-plus)** — Unlinked mention scanner: find and convert unlinked mentions vault-wide with one-click or batch operations.
+- **[Link Plus](https://github.com/jabaho9523/obsidian-link-plus)** — Find every unlinked mention in your vault and convert them to wikilinks — one click or batch.
+- **[Meetings Plus](https://github.com/jabaho9523/obsidian-meetings-plus)** — Subscribe to calendars and create pre-filled meeting notes in one click. ICS-based, privacy-first.
+- **[Tasks Plus](https://github.com/jabaho9523/obsidian-tasks-plus)** — Calm GTD over plain markdown: Inbox, Today, Upcoming, Anytime, Someday, Logbook.
+- **[Assist Plus](https://github.com/jabaho9523/obsidian-assist-plus)** — Chat with Claude on your own API key, with strict control over what it sees and changes.
 
 ## Support
 
